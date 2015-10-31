@@ -1,0 +1,51 @@
+MST important property: for every cycle the largest edge will never be in any MST
+number of MST for an unweighted graph: V^(V-2)
+find MinMax on the fly: for Kruskal, the one before the first edge make the s and t in the same set
+modified Dijkstra create a graph: 11 vertices 12 edges, but with >30 relaxes of the edges
+AVL tree 2logNmin>h
+UFDS Nmin=2^h
+BST: when we store using age, but delete using name, we usally bind name and age find the age in BST and delete it. (or we bind the position with name, this is easy for HEAP, but for BST we need pointer)
+call 1 findMin + n-1 successor = inorder
+visualgo: cycle finding
+output BST node with two children in descending order: inorder+check+stack
+isomorphic: change left right child can convert to another one -- DFS at the same time according to another one
+find kth smallest in a heap: another heap with k size ??
+structually different BST: (2n!)/((n+1)!n!)
+UFDS: unionSet contains findSet(path compression)
+Count sort & radix sort
+SPFA
+max no repeat edge path number (network flow)
+DAG->DP: SSLP SSSP Count Path
+DFS->Permutation
+record MST: just an undirected graph
+SSSP but two more node must go: run another 2 SSSP
+money change to make profit: bellman ford check negative cycle, w->-log(w)
+MST of undirected connected, distinct weights: MST unique
+SSSP of directed, distinct weights: SSSP not necessory unique
+check if a graph is a tree(can be undirected, must be connected): 1. no cycle 2.E=V-1
+Fire-Wall: run BFS, enqueue all Y and Fs
+for Prim and Dijkstra, because of lazy deletion, can use taken_counter to test whether all nodes have been taken, then early termination
+lego  NEWS SSSP, create new node for each node then dist become a 2d(direction,v) array, enqueue (w,v,direction)
+a tree is always rooted: false
+MST for undirected connected distinct weights graph, for each cycle, largest edge must not in any MST(smallest not necessorily in any MST)
+A and B find C which 1.(most important) A->C+B->C shortest,2 |A->C-B->C| smallest: must run SSSP for A and B and for V times find C with best result. find A->B SSSP and cost/2 can not work
+SSSP for integer weights with limited range: e.g 2-50 even number, break into more nodes and run BFS
+
+MST update:
+1. node with 1 edge--- just add
+2. node with 2 edges---test two times, connect one first, then use either 'in increase' or 'other decrease'
+3. edge weight change
+	4 cases: in decrease, other increase--- no change
+			others decrease: add that edge check the MST A->B path using DFS, O(V+E) find largest 				and compare with that decreased edge(same as adding new edge)
+			in increase: delete that edge, O(E) smallest to connect the diconnected components
+
+check a cycle in a connected undirected graph: O(1) check E=V-1
+check a cycle in an unconnected undirected graph O(V) after V times you difinitely will encounter a cycle if there is one
+
+save a complete graph with only k<=7 edges missed. use reverse edgelist. for V>5, if want to check if i, j connected, we can just check whether the node i or j is isolated.
+
+for a graph if you want to output numCC every time you delete a node(you know what are they upfront) just delete them all first, use UFDS to check add 1 node will decrease numCC or not(firstly numCC++) then reverse the output
+
+UVa10704: SSSP but limit the number of nodes to access. can add one more info as NEWS for k nodes have been visited, also can use DP with k hops(modified bellman ford)
+
+TSP=> permutation(modified DFS)=> DAG=> topological order, DP with bitmask
