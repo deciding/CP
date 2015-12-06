@@ -1,0 +1,6 @@
+1. Max Spanning Tree
+2. Minimum Spanning Graph: Union important edges, then run Kruskal
+3. Minimum Spanning Forest: K CCs, run Kruskal, every successful union numCC--
+4. Second Best Spanning Tree: delete every edge in MST and check every edge in sorted order to connect two disconnected components(isSameSet->UnionSet) O(ElogV+VE)
+5. Minimax, Maximin, find MST first, DFS on MST to find A-B path and get the max edge
+6. update MST, in folder 2010

@@ -1,0 +1,47 @@
+string
+store: char str[]; string
+	String, StringBuffer, StringBuilder
+read word: scanf("%s", word); cin>>str
+	Scanner-next()
+read line: gets(line) fgets(line,40,stdin); cin.getline(cstr,size), getline(cin,str)
+	Scanner-nextLine(), BufferedReader-readLine() faster
+concatenate: strcpy(str,"")+strcat(str,line); +
+	StringBuilder-append(), + too slow
+stop at ".......": strncmp(line,".......",7); ==
+	String-equals()
+take substr:strncpy(str2, str1, 5)+str2[5] = '\0'; str.substr(pos,len)
+	str.substring(start),str.substring(start,end)
+check substr: strstr(str,substr) return null; str.find(substr) return string::npos 
+	str.indexOf(substr) return -1
+next occurence:pos=strstr(str+pos+1,substr) multiple times; pos=str.find(substr,pos+1)
+	pos=str.indexOf(substr,pos+1)
+ops on character: ctype.h tolower toupper isdigit isalpha; same as C
+	StringBuilder-charAt(index),setCharAt(index,char)+Character.isDigit(),isLetter(),toLowerCase(),toUpperCase()
+tokenize:pch = strtok (str," ,.-"); while (pch != NULL) pch = strtok (NULL, " ,.-");
+	StringTokenizer st = new StringTokenizer("www.ooobj.com", ".b");  
+ 	while(st.hasMoreElements())
+ 		System.out.println("Token:" + st.nextToken());  //return String
+ 	or
+ 	Str.split("-", 2) return String[]
+sort tok: ; vector<string>+algoritm::sort
+	Vector<String>+Collections.sort
+conversion:
+	string to char*:str.c_str()
+	char* to string:string str=cstr;string str(cstr)
+	char* to int:stdlib.h atoi(cstr) return int
+	int to char*:stdlib.h itoa(int,cstr,base) return char *
+
+	string to int:stoi(str)
+		Integer.parseInt(str)
+	int to string:to_string(int)
+		Integer.toString(i) or String.valueOf(i)
+frequency of word: ; map<string,int>
+	TreeMap<String,Integer>
+dynamically caculate string length:  count char by char until \n; same as C
+	char by char:BufferedReader-read()!=-1, (char)result
+Java String:
+immutable, constant pool, thread safe(cannot be used by two threads same time)
+Java StringBuffer:
+mutable, heap, sychronized, thread safe, slower, toString()
+Java StringBuffer:
+mutable, heap, not thread safe, toString()

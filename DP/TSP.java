@@ -18,7 +18,8 @@ class Main { /* UVa10496 Collecting Beepers */
 
     int ans = 2000000000;
     for (int nxt = 0; nxt <= n; nxt++) // O(n) here
-      if (nxt != pos && (bitmask & (1 << nxt)) == 0) // if coordinate nxt is not visited yet
+      //no need pos condition?
+      if ((bitmask & (1 << nxt)) == 0) // if coordinate nxt is not visited yet
         ans = Math.min(ans, dist[pos][nxt] + tsp(nxt, bitmask | (1 << nxt)));
     return memo[pos][bitmask] = ans;
   }

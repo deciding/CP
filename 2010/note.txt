@@ -49,3 +49,24 @@ for a graph if you want to output numCC every time you delete a node(you know wh
 UVa10704: SSSP but limit the number of nodes to access. can add one more info as NEWS for k nodes have been visited, also can use DP with k hops(modified bellman ford)
 
 TSP=> permutation(modified DFS)=> DAG=> topological order, DP with bitmask
+
+Bellman Ford check positive cycle: use strech instead of relax (longest path instead of shortest path), then the Vth cycle check if there is any updates.
+
+Summary:
+Intuition <-> Complex Concepts
+Don't overkill, look constriants carefully
+
+Dijkstra:每次都找目前最短的 PQ，这样relax的边就不用再考虑了
+BellmanFord：假设 最短距离离s只有1个hop的， 2个的。。。
+FloydWarshall: 假设 最短距离只需要前k个点的。。。。。
+
+final:
+Floyd Warshall used for preprocessing:升龙拳
+s->t fixed, update edge to smaller, check whether update SSSP
+1.APSP, d[s][a]+new w(a,b)+d[b][t]<d[s][t]
+2.Dijkstra twice d_s[a]+new w(a,b)+d_t[b]<d_s[t] (I think we can get d_t[b] by using d_s[t]-d_s[b] directly)
+
+last PS:
+some points we must go, choose shortest path.
+run Dijkstra for all points, use results in AdjMatrix as their new "edge weight"
+run TSP
